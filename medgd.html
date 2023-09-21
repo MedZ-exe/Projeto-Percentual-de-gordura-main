@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Análises de Percentual de Gordura</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <img src="https://minervafoods.com/wp-content/plugins/minerva-megamenu/assets/images/logo.webp" alt="Logo" style="float: left; margin-top: -20px;">
+            <h1>Sistema de Análise de Percentual de Gordura</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="upload-container">
+                <label for="file-upload" class="custom-file-upload">
+                    <input type="file" id="file-upload" accept="image/*">
+                    Escolher arquivo
+                </label>
+                <div id="image-preview"></div>
+            </div>
+            
+            <div class="info-container">
+                <h2>Informações da Foto</h2>
+                <div>
+                    <label>% de gordura:</label>
+                    <span id="gordura">-</span>
+                </div>
+                <div>
+                    <label>% de carne:</label>
+                    <span id="carne">-</span>
+                </div>
+                <div>
+                    <label>% - não determinado:</label>
+                    <span id="nao-determinado">-</span>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="processar-btn">Processar</button>
+                <button id="salvar-btn">Salvar</button>
+            </div>
+        </div>
+    </main>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+header {
+    background-color: #E84752;
+    color: #fff;
+    padding: 10px;
+    text-align: center; /* Adicionado para centralizar o conteúdo */
+}
+footer {
+    background-color: #E84752;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+header h1 {
+    margin: 0; /* Removido a margem superior padrão do título */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #E84752;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.upload-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.capture-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#capture-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-container {
+    margin-top: 20px;
+}
+
+.info-container h2 {
+    margin: 0 0 10px;
+}
+
+.info-container div {
+    margin-bottom: 10px;
+}
+
+.info-container label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.info-container span {
+    font-weight: bold;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

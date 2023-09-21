@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Login</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .top-menu {
+      background-color: #E84752;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 60px);
+    }
+
+    .login-form {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-form input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      background-color: #E84752;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-form button:hover {
+      background-color: red;
+    }
+
+    .login-form h2 {
+      text-align: center;
+    }
+
+    .footer {
+      background-color: #E84752;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-menu">
+    <img class="logo" src="https://minervafoods.com/wp-content/plugins/minerva-megamenu/assets/images/logo.webp" alt="Logo">
+    <h1 style="text-align: center; flex-grow: 1;">Sistema de Análise de Percentual de Gordura</h1>
+  </div>
+  <div class="container">
+    <form class="login-form" action="processar_login.php" method="POST">
+      <h2>Login</h2>
+      <input type="text" name="username" placeholder="Nome de usuário" required>
+      <input type="password" name="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <div class="footer">
+    &copy; Emerson de Oliveira Reis Junior
+  </div>
+</body>
+</html>
