@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análise de Cores em JavaScript</title>
+</head>
+<body>
+    <input type="file" id="imagemInput" accept="image/*">
+    <img id="imagem" style="max-width: 400px;">
+    <p>Percentual de Vermelho: <span id="percentualVermelho">0%</span></p>
+    <p>Percentual de Branco: <span id="percentualBranco">0%</span></p>
+    <p>Percentual de Não Identificado: <span id="percentualNaoIdentificado">0%</span></p>
+
+    <script>
+ // Função para calcular o percentual de uma cor específica na imagem
+function calcularPercentualCor(imagem, corAlvo) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = imagem.width;
+    canvas.height = imagem.height;
+    ctx.drawImage(imagem, 0, 0);
+
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = imageData.data;
+
+    let totalPixels = 0;
+    let pixelsCorAlvo = 0;
+
+    for (let i = 0; i < pixels.length; i += 4) {
+        const red = pixels[i];
+        const green = pixels[i + 1];
+        const blue = pixels[i + 2];
+
+        // Verifique se a cor do pixel está próxima o suficiente da cor alvo
+        const distancia = Math.sqrt(
+            Math.pow(red - corAlvo[0], 2) +
+            Math.pow(green - corAlvo[1], 2) +
+            Math.pow(blue - corAlvo[2], 2)
+        );
+
+        // Defina uma tolerância para considerar um pixel como parte da cor alvo
+        const tolerancia = 30; // Ajuste conforme necessário
+
+        if (distancia <= tolerancia) {
+            pixelsCorAlvo++;
+        }
+
+        totalPixels++;
+    }
+
+    return (pixelsCorAlvo / totalPixels) * 100;
+}
+
+        
+
+        // Manipular a seleção de imagem
+        const imagemInput = document.getElementById('imagemInput');
+        const imagemElement = document.getElementById('imagem');
+        const percentualVermelhoElement = document.getElementById('percentualVermelho');
+        const percentualBrancoElement = document.getElementById('percentualBranco');
+        const percentualNaoIdentificadoElement = document.getElementById('percentualNaoIdentificado');
+
+        imagemInput.addEventListener('change', function () {
+            const file = imagemInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const imagem = new Image();
+                imagem.src = e.target.result;
+                imagemElement.src = e.target.result;
+
+                imagem.onload = function () {
+                    const corVermelha = [255, 0, 0];
+                    const corBranca = [255, 255, 255];
+
+                    const percentualVermelho = calcularPercentualCor(imagem, corVermelha);
+                    const percentualBranco = calcularPercentualCor(imagem, corBranca);
+                    const percentualNaoIdentificado = 100 - (percentualVermelho + percentualBranco);
+
+                    percentualVermelhoElement.textContent = percentualVermelho.toFixed(2) + '%';
+                    percentualBrancoElement.textContent = percentualBranco.toFixed(2) + '%';
+                    percentualNaoIdentificadoElement.textContent = percentualNaoIdentificado.toFixed(2) + '%';
+                };
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
